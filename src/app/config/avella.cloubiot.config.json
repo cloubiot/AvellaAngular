@@ -1,0 +1,10 @@
+{
+    "APIService": "http://localhost:4000",
+    "RESTAPIService" :"http://avella.cloubiot.com:8080/avellaWAPI",
+    "appkey": "abc",
+    "loggingLevel": {
+        "isLogDebug": true,
+        "isLogError": true,
+        "isLogInfo": true
+    }
+}

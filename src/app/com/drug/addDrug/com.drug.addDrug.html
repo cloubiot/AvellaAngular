@@ -1,0 +1,550 @@
+<div id="addproduct">
+
+
+    <div class="panel panel-primary ">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Notification </h3>
+        </div>
+        <div class="panel-body">
+             
+            <div class="row">
+                <div class="col-md-10">
+
+ 
+                            <div>
+
+                                <form #f1="ngForm" [formGroup]="drugForm"  method="post" action="#">
+
+                                    <div class="row">
+                                <div class="col-md-2"style="float:right; padding-right: 20px; ">
+                                <button class="btn btn-primary  btn-block" data-toggle="modal" attr.data-target="#iphone-view{{drug.id}}" style="float:right;" type="button">                           
+                                       Iphone View   
+                                </button>
+                                </div>
+                                <div class="col-md-2" style="float:right; padding-right: 20px;">
+                                <button class="btn btn-primary  btn-block" data-toggle="modal" attr.data-target="#ipad-view{{drug.id}}" style="float:right;" type="button">                           
+                                          Ipad View
+                                </button>
+                                </div>
+                            </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Drug Name*</label>
+                                                <textarea rows="1" cols="40" [(ngModel)]="drug.drugName" formControlName="_drugName" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._drugName.touched && drugForm.controls._drugName.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._drugName.errors.required"> Please enter the Drug Name</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Drug Category*</label>
+                     
+                                                
+                                                <select placeholder=".col-xs-2" class="form-control" name="categoryName" [(ngModel)]="drug.drugCategoryId"  formControlName="_drugCategoryId">   
+                                                    <option *ngFor="let x of drugCategorys" [value]="x.id" [selected]="drug.drugCategoryId == x.categoryName">{{x.categoryName}}</option>
+                                                    </select>
+                                                
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._drugName.touched && drugForm.controls._drugName.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._drugName.errors.required"> Please choose the Drug Category</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Indications and Usage*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.indicationsUsage" formControlName="_indicationsUsage" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._indicationsUsage.touched && drugForm.controls._indicationsUsage.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._indicationsUsage.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Dosage Administration*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.dosageAdministration" formControlName="_dosageAdministration" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._dosageAdministration.touched && drugForm.controls._dosageAdministration.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._dosageAdministration.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Dosage Form Strength*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.dosageFormStrength" formControlName="_dosageFormStrength" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._dosageFormStrength.touched && drugForm.controls._dosageFormStrength.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._dosageFormStrength.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Contraindictions*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.contraindictions" formControlName="_contraindictions" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._contraindictions.touched && drugForm.controls._contraindictions.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._contraindictions.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Warnings and Precaustions*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.warningsPrecaustions" formControlName="_warningsPrecaustions" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._warningsPrecaustions.touched && drugForm.controls._warningsPrecaustions.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._warningsPrecaustions.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Adverse Reactions*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.adverseReactions" formControlName="_adverseReactions" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._adverseReactions.touched && drugForm.controls._adverseReactions.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._adverseReactions.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Drug Interactions*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.drugInteractions" formControlName="_drugInteractions" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._drugInteractions.touched && drugForm.controls._drugInteractions.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._drugInteractions.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Use In SpecificPopulations*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="drug.useInSpecificPopulations" formControlName="_useInSpecificPopulations" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="drugForm.controls._useInSpecificPopulations.touched && drugForm.controls._useInSpecificPopulations.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._useInSpecificPopulations.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Available at Avella*</label>
+                                                <textarea rows="1" cols="40" [(ngModel)]="drug.availableAtAvella" formControlName="_availableAtAvella" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                  <div *ngIf="drugForm.controls._availableAtAvella.touched && drugForm.controls._availableAtAvella.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._availableAtAvella.errors.required"> Please enter the valid number</div>
+                                            </div>  
+                                            </div>
+                                             
+                                        </div>
+                                    </div>
+                                  <!--   <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label for="packing">Drug Category*</label>
+                                               <select placeholder=".col-xs-2" class="form-control" name="categoryName" [(ngModel)]="drug.drugCategoryId" formControlName="_drugCategoryId">
+                                                    <option *ngFor="let x of drugCategorys" [value]="x.id" [selected]="drug.drugCategoryId == x.id">{{x.categoryName}}</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Site Url*</label>
+                                                <textarea rows="1" cols="40" [(ngModel)]="drug.siteUrl" formControlName="_siteUrl" id="text" class="form-control"></textarea>
+                                            </div>
+                                            <div *ngIf="drugForm.controls._siteUrl.touched && drugForm.controls._siteUrl.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._siteUrl.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Drug Type*</label>
+                                                <textarea rows="1" cols="40" [(ngModel)]="drug.drugType" formControlName="_drugType" id="text" class="form-control"></textarea>
+                                            </div>
+                                            <div *ngIf="drugForm.controls._drugType.touched && drugForm.controls._drugType.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._drugType.errors.required"> Please enter the valid number</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Prescribing Information*</label>
+                                                <textarea rows="2" cols="40" [(ngModel)]="drug.prescribingInfo" formControlName="_prescribingInfo" id="text" class="form-control"></textarea>
+                                            </div>
+                                            <div *ngIf="drugForm.controls._prescribingInfo.touched && drugForm.controls._prescribingInfo.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._prescribingInfo.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="packing">Trade Mark*</label>
+                                                <textarea rows="2" cols="40" [(ngModel)]="drug.tradeMark" formControlName="_tradeMark" id="text" class="form-control"></textarea>
+                                            </div>
+                                            <div *ngIf="drugForm.controls._tradeMark.touched && drugForm.controls._tradeMark.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="drugForm.controls._tradeMark.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="modal fade" id="iphone-view{{drug.id}}" role="dialog">
+                                    <div class="modal-dialog" >
+    
+      <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <a href="#" data-dismiss="modal" aria-hidden="true" class="close" style="color:white">×</a>
+                                                <h3>IPhone View</h3>
+                                            </div>
+                                        <div class="modal-body" style="background-color: #f3f3f3">
+                                            <div class="container">
+                                                <div class="col-md-12">
+                                                    <div class="basic_form">
+                                                        <div class="row" style="width:386px; background-color:white; margin-left: -5px">
+                                                            <div > &nbsp;</div>
+                                                            <div class="row">
+                                                                <!--div style="float: left;" class="col-xs-4">
+                                                                <img src="{{notification.imageUrl}}" style="margin-left: 5px;" >
+                                                                </div-->
+                                                                <div  class="col-md-12" >
+                                                                 <h3 style="text-align:center"> <b>{{drug.drugName}}</b> </h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Drug Category</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <div *ngFor="let x of drugCategorys">
+                                                                       <p *ngIf="x.id == drug.drugCategoryId">
+                                                                           {{x.categoryName}}
+                                                                   </p>
+                                                                   </div>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Indications and Usage</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.indicationsUsage"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Administration</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageAdministration"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Form Strength</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageFormStrength"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Contraindictions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.contraindictions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Warnings and Precautions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.warningsPrecaustions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Adverse Reactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.adverseReactions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Drug Interactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.drugInteractions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Use In Specific Populations</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.useInSpecificPopulations"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Trademark</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.tradeMark"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Site Url</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <a target="_blank" href="{{drug.siteUrl}}">{{drug.siteUrl}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Prescribing Information</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <a target="_blank" href="{{drug.prescribingInfo}}">{{drug.prescribingInfo}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                          
+
+                                <div class="modal fade" id="ipad-view{{drug.id}}" role="dialog">
+                                    <div class="modal-dialog" style ="width:768px;">
+    
+      <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <a href="#" data-dismiss="modal" aria-hidden="true" class="close" style="color:white">×</a>
+                                                <h3>IPad View</h3>
+                                            </div>
+                                        <div class="modal-body" style="background-color: #f3f3f3">
+                                            <div class="container">
+                                                <div class="col-md-12">
+                                                    <div class="basic_form">
+                                                        <div class="row" style="width:754px; background-color:white; margin-left: -5px">
+                                                            <div > &nbsp;</div>
+                                                            <div class="row">
+                                                                <!--div style="float: left;" class="col-xs-4">
+                                                                <img src="{{notification.imageUrl}}" style="margin-left: 5px;" >
+                                                                </div-->
+                                                                <div  class="col-md-12" >
+                                                                 <h3 style="text-align:center"> <b>{{drug.drugName}}</b> </h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Drug Category</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <div *ngFor="let x of drugCategorys">
+                                                                       <p *ngIf="x.id == drug.drugCategoryId">
+                                                                           {{x.categoryName}}
+                                                                   </p>
+                                                                   </div>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Indications and Usage</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.indicationsUsage"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Administration</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageAdministration"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Form Strength</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageFormStrength"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Contraindictions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.contraindictions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Warnings and Precaustions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.warningsPrecaustions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Adverse Reactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.adverseReactions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Drug Interactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.drugInteractions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Use In Specific Populations</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.useInSpecificPopulations"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Site Url</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <a target="_blank" href="{{drug.siteUrl}}">{{drug.siteUrl}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Prescribing Information</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <a target="_blank" href="{{drug.prescribingInfo}}">{{drug.prescribingInfo}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Trademark</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.tradeMark"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                   <hr class="colorgraph">
+                                    <div class="row">
+                                         <div class="col-xs-12 col-md-2 pull-right"><input type="button" (click)="addDrug()"  value="Save"
+                                                class="btn btn-primary btn-block " tabindex="7"></div>
+                                        <div class="col-xs-12 col-md-2 pull-right"><input type="button" (click)="backToSearch()"  value="Cancel"
+                                            style="    background-color: #d43f3a; border: #d43f3a;"    class="btn btn-primary btn-block " tabindex="7"></div>
+                                       
+                                    </div>
+                                </form>
+                            </div>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>

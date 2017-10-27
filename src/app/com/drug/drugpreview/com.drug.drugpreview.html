@@ -1,0 +1,126 @@
+
+    
+     
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                            
+                                                <h3>IPad View</h3>
+                                            </div>
+                                        <div class="panel-body" style="background-color: #f3f3f3">
+                                            <div *ngFor="let drug of drugDb">
+                                            <div class="container">
+                                                <div class="col-md-2">&nbsp;</div>
+                                                <div class="col-md-8">
+                                                    <div class="basic_form" style="width:100%">
+                                                        <div class="row" style=" background-color:white; margin-left: -5px">
+                                                            <div > &nbsp;</div>
+                                                            <div class="row">
+                                                                
+                                                                <div  class="col-md-12" >
+                                                                 <h3 style="text-align:center"> <b>{{drug.drugName}}</b> </h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Indications and Usage</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.indicationsUsage"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Administration</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageAdministration"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Dosage Form Strength</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.dosageFormStrength"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Contraindictions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.contraindictions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Warnings and Precaustions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.warningsPrecaustions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Adverse Reactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.adverseReactions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Drug Interactions</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <p [innerHTML]="drug.drugInteractions"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Use In Specific Populations</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.useInSpecificPopulations"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Trademark</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <p [innerHTML]="drug.tradeMark"></p>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Site Url</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                   <a target="_blank" href="{{drug.siteUrl}}">{{drug.siteUrl}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+
+                                                            <div class="row" style="margin-right:0px; margin-left:0px">
+                                                               <div class="panel panel-primary"  style="border:none">
+                                                                   <div class="panel-heading" style="background-color: 2674BA; border-color: 2674BA;">Prescribing Information</div>
+                                                                   <div class="panel-body" style="border:none">
+                                                                  <a target="_blank" href="{{drug.prescribingInfo}}">{{drug.prescribingInfo}}</a>
+                                                                   </div>
+                                                               </div>    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><div class="col-md-2">&nbsp;</div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                

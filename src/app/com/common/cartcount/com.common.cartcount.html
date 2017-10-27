@@ -1,0 +1,8 @@
+
+<div id="cart-count">
+ <div *ngIf="userName">  
+<button [disabled]="totalQuantity<1" class="btn btn-primary btn-sm" (click)="showCart()" type="button">
+   <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Cart <span class="badge">{{totalQuantity}}</span>
+</button>
+</div>
+</div>

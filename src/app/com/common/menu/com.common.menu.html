@@ -1,0 +1,17 @@
+<div id="menu">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9"
+          aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>        
+          <a href="#" class="navbar-brand"><font color="white">  </font></a> </div>
+      <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-9" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <!--li class="active"><a [routerLink]="['']">Home <span class="sr-only">(current)</span></a></li-->
+          <li><a [routerLink]="['search-notification']" routerLinkActive="active">Search Notification</a></li>
+          <li  *ngIf="roleId==1"><a [routerLink]="['search-drug']" routerLinkActive="active">Search Drug</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>

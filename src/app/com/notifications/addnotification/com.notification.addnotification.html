@@ -1,0 +1,274 @@
+<div id="addproduct">
+
+
+    <div class="panel panel-primary ">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Notification </h3>
+        </div>
+        <div class="panel-body">
+            <form #f1="ngForm" [formGroup]="notificationForm"  method="post" action="#">
+                <div class="row">
+                <div class="col-md-6" style="border:none; background-color:none" >
+                     
+                    <div class="form-group">
+                                                <label for="packing">Text*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"></textarea>
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            <div *ngIf="notificationForm.controls._text.touched && notificationForm.controls._text.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="notificationForm.controls._text.errors.required"> Please enter the valid Text</div>
+                                            </div>
+              </div>
+              <div class="col-md-3">  &nbsp;</div>
+                <!--div class="col-md-6" >
+                <div class="col-md-6" *ngIf="isNotificationImageAvailable" >
+                                                <div class="scanFile">
+                                                        <div class="hover-btn">
+                                                            <button type="button"  (click)=deleteProductImage(notifications.id) class="close" data-dismiss="alert">
+                                                                <font color="red" ><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></font>
+                                                                <span class="sr-only">Close</span>
+                                                            </button>
+                                                        </div>
+                                                        <img  src="{{notifications.imageUrl}}" width="200" height="200" />
+                                                </div>
+                                            </div>
+                                            <div *ngIf="!isNotificationImageAvailable" class="col-md-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" (drop)="dragFileAccepted($event)"
+                                                [uploader]="uploader" class="well my-drop-zone" style="background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;">
+                                                Drop your Product Image here!<BR>
+                                                (Supports JPEG/GIF/PNG Image files- Max 2MB) 
+                                                <BR>
+                                                <BR> OR
+                                                <BR>
+                                                <BR> Click here to choose your file
+
+                                                <input type="file" (change)="dragFileAccepted($event)" ng2FileSelect [uploader]="uploader" />
+                                                <BR>
+                                            </div>
+          </div--></div>
+           <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-3">
+                                            <div class="form-group">
+                                                <label for="productDescription">Status*</label>
+                                             
+                                                    <select  class="form-control"  [(ngModel)]="notifications.status" formControlName="_status">
+                                                         <option value="new" >New</option>
+                                                          <option value="published" >Published</option>
+                                                    </select>
+
+                                            </div>
+                                            <div *ngIf="notificationForm.controls._status.touched && notificationForm.controls._status.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="notificationForm.controls._status.errors.required"> Please enter the valid status </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="packing">Content</label><br>
+                                                <ckeditor [(ngModel)]="notifications.content" formControlName="_content" 
+        
+    name="content" [readonly]="false" debounce="500"> <p></p>
+     
+    </ckeditor>
+                                                
+                                                <!--<textarea rows="8" cols="40" [(ngModel)]="notifications.content" formControlName="_content" id="text" class="form-control"></textarea>-->
+                                               <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">-->
+                                                    
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="row">&nbsp;</div> <div class="row">&nbsp;</div>
+                                            <input type="button"   value="Preview" data-toggle="modal" attr.data-target="#iphone-view{{notifications.id}}"
+                                            style="width:50%; float:left"    class="btn btn-primary btn-block " tabindex="7">
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6" style="border:none; background-color:none" >
+                                            
+                                            <div class="form-group">
+                                                <label for="packing">Content Url</label>
+                                               <input type="text" class="form-control" name="contentUrl" [(ngModel)]="notifications.contentUrl" formControlName="_contentUrl">
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                     <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                             <hr class="colorgraph">
+                                             <div class="col-xs-6 col-sm-6 col-md-6 pull-left"><input type="button" (click)="backToSearch()"  value="Cancel"
+                                            style="    background-color: #d43f3a; border: #d43f3a;width:50%"    class="btn btn-primary btn-block " tabindex="7"></div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 pull-right"><input type="button" (click)="addNotification()"  value="Save"
+                                            style="width:50%; float:right"    class="btn btn-primary btn-block " tabindex="7"></div>
+                                        </div>
+                                     </div>
+                                     <div class="modal fade" id="iphone-view{{notifications.id}}" role="dialog">
+                                    <div class="modal-dialog" >
+    
+      <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <a href="#" data-dismiss="modal" aria-hidden="true" class="close" style="color:white">×</a>
+                                                <h3>IPhone View</h3>
+                                            </div>
+                                        <div class="modal-body" style="background-color: #f3f3f3">
+                                            <div class="container">
+                                                <div class="col-md-12">
+                                                    <div class="basic_form">
+                                                        <div class="row" style="width:386px; background-color:white; margin-left: -5px">
+                                                            <div > &nbsp;</div>
+                                                             <p [innerHTML]="notifications.content"></p>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div id="addproduct">
+
+
+    <div class="panel panel-primary ">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Notification </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+
+
+ 
+                            <div>
+
+                                <form #f1="ngForm" [formGroup]="notificationForm"  method="post" action="#">
+
+                                   
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="packing">Text*</label>
+                                                <textarea rows="5" cols="40" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"></textarea>
+                                               < <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
+                                                    placeholder="Text" tabindex="1">
+                                                    
+                                            </div>
+                                            <div *ngIf="notificationForm.controls._text.touched && notificationForm.controls._text.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="notificationForm.controls._text.errors.required"> Please enter the valid Text</div>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" *ngIf="isNotificationImageAvailable">
+                                                <div class="scanFile">
+                                                        <div class="hover-btn">
+                                                            <button type="button"  (click)=deleteProductImage(notifications.id) class="close" data-dismiss="alert">
+                                                                <font color="red" ><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></font>
+                                                                <span class="sr-only">Close</span>
+                                                            </button>
+                                                        </div>
+                                                        <img  src="{{notifications.imageUrl}}" width="200" height="200" />
+                                                </div>
+                                            </div>
+                                            <div *ngIf="!isNotificationImageAvailable" class="col-md-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" (drop)="dragFileAccepted($event)"
+                                                [uploader]="uploader" class="well my-drop-zone">
+                                                Drop your Product Image here!<BR>
+                                                (Supports JPEG/GIF/PNG Image files- Max 2MB) 
+                                                <BR>
+                                                <BR> OR
+                                                <BR>
+                                                <BR> Click here to choose your file
+
+                                                <input type="file" (change)="dragFileAccepted($event)" ng2FileSelect [uploader]="uploader" />
+                                                <BR>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label for="productDescription">Status*</label>
+                                             
+                                                    <select  class="form-control"  [(ngModel)]="notifications.status" formControlName="_status">
+                                                         <option value="new" >new</option>
+                                                          <option value="published" >published</option>
+                                                    </select>
+
+                                            </div>
+                                            <div *ngIf="notificationForm.controls._status.touched && notificationForm.controls._status.errors">
+                                                <div class="alert alert-danger fa fa-exclamation-triangle" *ngIf="notificationForm.controls._status.errors.required"> Please enter the valid status </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" *ngIf="isProductImageAvailable">
+                                                <div class="scanFile">
+                                                        <div class="hover-btn">
+                                                            <button type="button"  (click)=deleteProductImage(notifications.id) class="close" data-dismiss="alert">
+                                                                <font color="red" ><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></font>
+                                                                <span class="sr-only">Close</span>
+                                                            </button>
+                                                        </div>
+                                                        <img  src="{{notifications.imageUrl}}" width="200" height="200" />
+                                                </div>
+                                            </div>
+                                            <div *ngIf="!isProductImageAvailable" class="col-md-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" (drop)="dragFileAccepted($event)"
+                                                [uploader]="uploader" class="well my-drop-zone">
+                                                Drop your Image here!<BR>
+                                                (Supports JPEG/GIF/PNG Image files- Max 2MB) 
+                                                <BR>
+                                                <BR> OR
+                                                <BR>
+                                                <BR> Click here to choose your file
+
+                                                <input type="file" (change)="dragFileAccepted($event)" ng2FileSelect [uploader]="uploader" />
+                                                <BR>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                    
+
+                                   <hr class="colorgraph">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 pull-left"><input type="button" (click)="backToSearch()"  value="Cancel"
+                                            style="    background-color: #d43f3a; border: #d43f3a;"    class="btn btn-primary btn-block " tabindex="7"></div>
+                                        <div class="col-xs-12 col-md-4 pull-right"><input type="button" (click)="addNotification()"  value="Save"
+                                                class="btn btn-primary btn-block " tabindex="7"></div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div> -->
