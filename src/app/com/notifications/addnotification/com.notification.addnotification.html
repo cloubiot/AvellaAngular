@@ -69,11 +69,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="packing">Content</label><br>
-                                                <ckeditor [(ngModel)]="notifications.content" formControlName="_content" 
+                                                <!--<ckeditor [(ngModel)]="notifications.content" formControlName="_content" 
         
-    name="content" [readonly]="false" debounce="500"> <p></p>
+    name="content" [readonly]="false" debounce="50000"> <p></p>
      
-    </ckeditor>
+    </ckeditor>-->
+    <div [froalaEditor]  [(ngModel)]="notifications.content" formControlName="_content"  >Hello, Froala!</div>
+
                                                 
                                                 <!--<textarea rows="8" cols="40" [(ngModel)]="notifications.content" formControlName="_content" id="text" class="form-control"></textarea>-->
                                                <!-- <input type="text" name="text"  style="height:100px" [(ngModel)]="notifications.text" formControlName="_text" id="text" class="form-control"
@@ -98,6 +100,7 @@
                                                     
                                             </div>
                                         </div>
+                                        
                                     </div>
                                    
                                      <div class="row">

@@ -23,6 +23,7 @@
     "@angular/router": "^3.3.1",
     "@ng-idle/core": "^2.0.0-beta.12",
     "@ng-idle/keepalive": "^2.0.0-beta.12",
+    "angular2-froala-wysiwyg": "^2.6.0",
     "core-js": "^2.4.1",
     "ng2-ckeditor": "^1.1.9",
     "ng2-file-upload": "^1.2.1",

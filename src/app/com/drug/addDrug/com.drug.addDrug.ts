@@ -77,9 +77,10 @@ ngOnInit(){
   cb_viewDrug(res){
     if(res.isSuccess){
       this.drug = res.drug;
-    }else{
-       alert('Error Occurred');
     }
+    // else{
+    //    alert('Error Occurred');
+    // }
   }
 
 addDrug(){
@@ -98,9 +99,9 @@ addDrug(){
          this._router.navigate(['dashboard1/search-drug']);
          //alert("Added");
      }
-     else{
-         alert("Failed")
-     }
+    //  else{
+    //      alert("Failed")
+    //  }
  }
  backToSearch(){
      this._router.navigate(['dashboard1/search-drug']);

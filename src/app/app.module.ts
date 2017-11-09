@@ -28,6 +28,7 @@ import {Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; 
 import {Keepalive} from '@ng-idle/keepalive';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 @NgModule({
   imports:      [ 
      BrowserModule , 
@@ -41,6 +42,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
      DrugRouting,
      UsermgmtRouting,
      NgIdleKeepaliveModule.forRoot(),
+     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
      NotificationRouting,
      routing],
   declarations: [ AppComponent ],

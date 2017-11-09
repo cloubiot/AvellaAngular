@@ -43,6 +43,7 @@ export class LoginComponent extends BaseComponent{
       //   res.userProfile.userExt = userExt;
 
       // }
+      alert(res.user);
       this._sessionStorageService.setObject("userProfile",res.user);
       this._sessionStorageService.setObject("roleId",res.roleId);
 

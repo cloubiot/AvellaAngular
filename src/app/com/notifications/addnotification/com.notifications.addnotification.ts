@@ -87,9 +87,10 @@ this.notificationForm = this.fb.group({
           this.isNotificationImageAvailable=true;
         }
      
-    }else{
-       alert('Error Occurred');
-    }
+     }
+    //else{
+    //    alert('Error Occurred');
+    // }
   }
   cb_notificationContent(res){
     console.log("response"+res)

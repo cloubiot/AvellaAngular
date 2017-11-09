@@ -16,9 +16,10 @@ import {LoggingService} from '../common/service/logging/com.common.service.loggi
 import {FileUploadModule} from "ng2-file-upload";
 import {AddNotificationComponent} from './addnotification/com.notifications.addnotification';
 import {NotificationsService} from './service/com.notifications.service';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 
 @NgModule({
-  imports:      [ BrowserModule ,FormsModule,HttpModule,CKEditorModule,ReactiveFormsModule,RouterModule,CommonModule,FileUploadModule],
+  imports:      [ BrowserModule ,FormsModule,HttpModule,CKEditorModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),ReactiveFormsModule,RouterModule,CommonModule,FileUploadModule],
   declarations: [ DashboardComponent,SearchNotificationComponent,AddNotificationComponent],
   exports:    [DashboardComponent,SearchNotificationComponent,AddNotificationComponent],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
